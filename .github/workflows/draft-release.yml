@@ -35,12 +35,12 @@ jobs:
           mkdir out/
           git archive --prefix="addons/limbo_console/" --output="out/limbo_console_${VERSION_TAG}.zip" ${{ github.ref }}
 
-      #- name: Generate changelog
-      #  id: changelog
-      #  uses: metcalfc/changelog-generator@v4.3.1
-      #  with:
-      #    myToken: ${{ secrets.GITHUB_TOKEN }}
-      #    base-ref: ${{ inputs.base-ref }}
+      - name: Generate changelog
+        id: changelog
+        uses: metcalfc/changelog-generator@v4.3.1
+        with:
+          myToken: ${{ secrets.GH_TOKEN }}
+          base-ref: ${{ inputs.base-ref }}
 
       - name: Draft Release
         uses: ncipollo/release-action@v1
