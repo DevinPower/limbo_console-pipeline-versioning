@@ -24,6 +24,7 @@ jobs:
           VERSION_TAG="$( (git describe --tags --exact-match HEAD || git rev-parse --short HEAD) | sed 's/\(.*\)-\(.*\)/\1.\2/g' )"
           VERSION=${VERSION_TAG#v}
           echo "VERSION_TAG=${VERSION_TAG}" >> "$GITHUB_ENV"
+          echo "VERSION=${VERSION}" >> "$GITHUB_ENV"
 
       - name: Update plugin version
         shell: bash
