@@ -47,7 +47,7 @@ jobs:
       - name: Draft Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ github.ref }}
+          tag: ${{ env.VERSION_TAG }}
           name: ${{ env.VERSION_TAG }}
           body: ${{ steps.changelog.outputs.changelog }}
           token: ${{ secrets.GITHUB_TOKEN }}
