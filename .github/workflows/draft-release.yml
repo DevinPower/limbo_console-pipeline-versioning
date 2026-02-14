@@ -27,7 +27,7 @@ jobs:
 
       - name: Update plugin version
         shell: bash
-        run: sed -i 's|version="<VERSION>"|version="${{ env.VERSION }}"|g' app.cfg
+        run: sed -i 's|version="<VERSION>"|version="${{ env.VERSION }}"|g' plugin.cfg
 
       - name: Create artifact
         shell: bash
