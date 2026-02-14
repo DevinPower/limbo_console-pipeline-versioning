@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
           mkdir out/
-          git archive --prefix="addons/limbo_console/" --output="out/limbo_console_${VERSION_TAG}.zip" ${{ github.ref }}
+          zip -r "out/limbo_console_${VERSION_TAG}.zip" addons/limbo_console/ -x ".*"
 
       - name: Generate changelog
         id: changelog
