@@ -27,7 +27,7 @@ jobs:
 
       - name: Update plugin version
         shell: bash
-        run: sed -i 's|version="<VERSION>"|version="${VERSION}"|g' plugin.cfg
+        run: sed -i "s|version=\"<VERSION>\"|version=\"${VERSION}\"|g" plugin.cfg
 
       - name: Create artifact
         shell: bash
@@ -47,7 +47,7 @@ jobs:
       - name: Draft Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ env.VERSION_TAG }}
+          tag: ${{ github.ref }}
           name: ${{ env.VERSION_TAG }}
           body: ${{ steps.changelog.outputs.changelog }}
           token: ${{ secrets.GITHUB_TOKEN }}
