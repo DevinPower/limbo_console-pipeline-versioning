@@ -32,8 +32,10 @@ jobs:
       - name: Create artifact
         shell: bash
         run: |
+          mkdir -p temp/addons/limbo_console/
+          cp -r *.gd *.cfg *.uid res/ temp/addons/limbo_console/
           mkdir out/
-          zip -r "out/limbo_console_${VERSION_TAG}.zip" addons/limbo_console/ -x '*/.*'
+          cd temp && zip -r "../out/limbo_console_${VERSION_TAG}.zip" addons/
 
       - name: Generate changelog
         id: changelog
